@@ -1,7 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MultiViewComponent} from './multi-view.component';
-import {MOCKDATA} from '../mock-data';
 
 describe('MultiViewComponent', () => {
   let component: MultiViewComponent;
@@ -16,7 +15,33 @@ describe('MultiViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MultiViewComponent);
     component = fixture.componentInstance;
-    component.data = MOCKDATA;
+    component.data = [{
+      'accession': 'P12345',
+      'name': 'PROTEIN',
+      'identifier': 'ABC_HUMAN',
+      'mappings': [
+        {
+          'entity_id': 1,
+          'chain_id': 'A',
+          'struct_asym_id': 'A',
+          'start': {
+            'author_residue_number': 1,
+            'author_insertion_code': '',
+            'residue_number': 1
+          },
+          'end': {
+            'author_residue_number': 42,
+            'author_insertion_code': '',
+            'residue_number': 42
+          },
+          'unp_start': 2,
+          'unp_end': 43,
+          'pdb_start': 1,
+          'pdb_end': 42
+        }
+      ],
+      'description': 'Bla bla bla bla'
+    }];
     component.pdbId = '1cbs';
     fixture.detectChanges();
   });
