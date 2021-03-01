@@ -51,6 +51,6 @@ describe('MultiViewComponent', () => {
   });
 
   it('getCanonicalUniProt() should work', () => {
-    expect(component.getCanonicalUniProt()[1]['accession']).toEqual('P29373');
+    expect(component.getCanonicalUniProt()[0]['accession']).toEqual('P12345');
   });
 });
