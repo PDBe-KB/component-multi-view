@@ -1,27 +1,79 @@
-# PdbeKbMultiView
+PDBe-KB Multi-View Component
+=
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
-## Development server
+This is the repository of a lightweight Angular 7+ web component that displays all the available PDB entries for a particular UniProt accession in a tabular format. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This component is used on the PDBe-KB Aggregated Views of Proteins to display a table of all the UniProt accessions and processed protein identifiers (PRO id) for a particular PDB entry.
 
-## Code scaffolding
+### Example:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://raw.githubusercontent.com/PDBe-KB/component-multi-view/main/pdbe-kb-multi-view.png">
 
-## Build
+## Quick Start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Get the code and install dependencies
+```
+git clone https://github.com/PDBe-KB/component-multi-view.git
+cd component-multi-view
+npm i
+```
 
-## Running unit tests
+Running the app
+```
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Running tests
+```
+ng test
+```
 
-## Running end-to-end tests
+## Basic usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The pinging component can be added to any Angular7+ apps.
 
-## Further help
+Import the component (e.g. in app.module.ts):
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+import { AppComponent } from './app.component';
+import { MultiViewComponent } from './multi-view/multi-view.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MultiViewComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Adding the pinging component to a template:
+```angular2html
+<app-multi-view [data]="data" [pdbId]="accession"></app-multi-view>
+```
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/PDBe-KB/component-multi-view/tags).
+
+## Authors
+
+* **Mihaly Varadi** - *Migrating to GitHub* - [mvaradi](https://github.com/mvaradi)
+
+See also the list of [contributors](https://github.com/PDBe-KB/component-multi-view/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the EMBL-EBI License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgements
+
+We would like to thank the [PDBe team](https://www.pdbe.org) and the [PDBe-KB partner resources](https://github.com/PDBe-KB/pdbe-kb-manual/wiki/PDBe-KB-Annotations) for their feedback and contributions.
