@@ -1,44 +1,48 @@
-<div *ngIf="data" data-sticky-container="" class="sticky-container" style="height: 169px;">
-  <div id="masthead" class="masthead sticky is-anchored is-at-top" data-sticky="rgkpaw-sticky" data-sticky-on="large"
-       data-top-anchor="content:top" data-btm-anchor="content:bottom" data-resize="masthead" data-mutate="masthead"
-       data-events="resize" style="max-width: 1704px; margin-top: 0; bottom: auto; top: 0;">
-    <div class="masthead-inner row">
-      <div class="columns medium-7" id="local-title">
-        <h1><a href="https://www.ebi.ac.uk/pdbe/pdbe-kb" title="Back to PDBe-KB homepage">
-          <img src="https://www.ebi.ac.uk/pdbe/pdbe-kb/static/img/PDBe-KB-logo-white.png" style="max-height: 60px">
-        </a></h1>
+<div *ngIf="data">
+  <div data-sticky-container="" class="sticky-container" style="height: 169px;">
+    <div id="masthead" class="masthead sticky is-anchored is-at-top" data-sticky="rgkpaw-sticky" data-sticky-on="large"
+         data-top-anchor="content:top" data-btm-anchor="content:bottom" data-resize="masthead" data-mutate="masthead"
+         data-events="resize" style="max-width: 1704px; margin-top: 0; bottom: auto; top: 0;">
+      <div class="masthead-inner row">
+        <div class="columns medium-7" id="local-title">
+          <h1><a href="https://www.ebi.ac.uk/pdbe/pdbe-kb" title="Back to PDBe-KB homepage">
+            <img src="https://www.ebi.ac.uk/pdbe/pdbe-kb/static/img/PDBe-KB-logo-white.png" style="max-height: 60px">
+          </a></h1>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row" style="padding: 0 15px 15px 15px">
-  <div class="small-12">
-    <h3>PDB entry {{pdbId}} contains the proteins listed below.</h3>
-    <p>Click on any of the buttons to view the detailed protein view.</p>
-    <table>
-      <!-- TODO remove later when PRO is ready -->
-      <tr *ngFor="let item of getCanonicalUniProt()">
-        <td style="font-weight: bold" *ngIf="item.accession.indexOf('PRO_') === -1">{{item.description}}
-          ({{item.name}})
-        </td>
-        <td *ngIf="item.accession.indexOf('PRO_') === -1">
-          <ul *ngIf="item.mappings.length > 1">
-            <li *ngFor="let mapping of item.mappings">
-              UniProt residues in chain {{mapping.chain_id}}: {{mapping.unp_start}} - {{mapping.unp_end}}
-            </li>
-          </ul>
-          <span *ngIf="item.mappings.length == 1">
+  <div class="row" style="padding: 0 15px 15px 15px">
+    <div class="small-12">
+      <h3>PDB entry {{pdbId}} contains the proteins listed below.</h3>
+      <p>Click on any of the buttons to view the detailed protein view.</p>
+      <table>
+        <tr *ngFor="let item of getCanonicalUniProt()">
+          <td *ngIf="item.description" style="font-weight: bold">
+            {{item.description}} ({{item.accession}})
+          </td>
+          <td *ngIf="!item.description" style="font-weight: bold">
+            {{item.name}} ({{item.accession}})
+          </td>
+          <td>
+            <ul *ngIf="item.mappings.length > 1">
+              <li *ngFor="let mapping of item.mappings">
+                UniProt residues in chain {{mapping.chain_id}}: {{mapping.unp_start}} - {{mapping.unp_end}}
+              </li>
+            </ul>
+            <span *ngIf="item.mappings.length == 1">
             UniProt residues in chain {{item.mappings[0].chain_id}}:
             {{item.mappings[0].unp_start}} - {{item.mappings[0].unp_end}}
           </span>
-        </td>
-        <td *ngIf="item.accession.indexOf('PRO_') === -1">
-          <a class="button" href="{{item.accession}}">View details
-            <i class="icon icon-generic" data-icon=";"></i></a>
-        </td>
-      </tr>
-    </table>
+          </td>
+          <td>
+            <a class="button" href="{{item.accession}}">View details
+              <i class="icon icon-generic" data-icon=";"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 

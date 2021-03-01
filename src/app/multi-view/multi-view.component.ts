@@ -1,30 +1,24 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {UniProtMapping} from './multi-view.models';
 
 @Component({
   selector: 'app-multi-view',
   templateUrl: './multi-view.component.html',
   styleUrls: ['./multi-view.component.css']
 })
-export class MultiViewComponent implements OnInit {
+export class MultiViewComponent {
 
-  @Input() data: any;
+  @Input() data: UniProtMapping[];
   @Input() pdbId: string;
 
   getCanonicalUniProt(): any {
     const canonicalUniProtList = [];
-    for (const key of Object.keys(this.data)) {
-      const temp = this.data[key];
-      temp['accession'] = key;
-      if (key.indexOf('-') === -1) {
-        canonicalUniProtList.push(this.data[key]);
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i].accession.indexOf('-') === -1) {
+        canonicalUniProtList.push(this.data[i]);
       }
     }
     return canonicalUniProtList;
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }

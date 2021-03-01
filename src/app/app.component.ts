@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {UniProtMapping} from './multi-view/multi-view.models';
+import {MOCKDATA} from './mock-data';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pdbe-kb-multi-view';
+  data: UniProtMapping[];
+  accession: string;
+
+  constructor() {
+    this.data = MOCKDATA;
+    this.accession = '1cbs';
+  }
 }
