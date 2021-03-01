@@ -5,7 +5,7 @@ import {MOCKDATA} from './mock-data';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: ['']
 })
 export class AppComponent {
   data: UniProtMapping[];
