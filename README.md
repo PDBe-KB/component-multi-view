@@ -1,6 +1,9 @@
 PDBe-KB Multi-View Component
 =
 
+[![Build Status](https://www.travis-ci.com/PDBe-KB/component-multi-view.svg?branch=main)](https://www.travis-ci.com/PDBe-KB/component-multi-view)
+[![codecov](https://codecov.io/gh/PDBe-KB/component-multi-view/branch/main/graph/badge.svg?token=XYSKQV18FH)](https://codecov.io/gh/PDBe-KB/component-multi-view)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1852ac5538a63c058263/maintainability)](https://codeclimate.com/github/PDBe-KB/component-multi-view/maintainability)
 
 This is the repository of a lightweight Angular 7+ web component that displays all the available PDB entries for a particular UniProt accession in a tabular format. 
 
