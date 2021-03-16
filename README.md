@@ -67,7 +67,7 @@ import { MultiViewComponent } from './multi-view/multi-view.component';
 export class AppModule { }
 ```
 
-Adding the pinging component to a template:
+Adding the component to a template:
 ```angular2html
 <app-multi-view [data]="data" [pdbId]="accession"></app-multi-view>
 ```
