@@ -117,7 +117,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Mihaly Varadi** - *Initial implementation* - [mvaradi](https://github.com/mvaradi)
+* **Mihaly Varadi** - *Initial Implementation* - [mvaradi](https://github.com/mvaradi)
 
 See also the list of [contributors](https://github.com/PDBe-KB/component-multi-view/contributors) who participated in this project.
 
